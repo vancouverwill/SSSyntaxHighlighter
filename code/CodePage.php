@@ -86,68 +86,65 @@ class CodePage_Controller extends Page_Controller {
 		// included so that our older themes still work
 
 
-
-
-		
-
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shCore.js");
-		/*Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushAS3.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushCpp.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushCss.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushJava.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushJScript.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushPlain.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushPhp.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushSql.js");
-		Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushXml.js");*/
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shCore.js");
+		/*Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushAS3.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushCpp.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushCss.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushJava.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushJScript.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushPlain.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushPhp.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushSql.js");
+		Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushXml.js");*/
 		
 		//AS3, Cpp, Css, Java, Javascript, Plain, PHP, Sql, Xml
 		
-		switch (CodePage::get_static('CodePage', 'ProgrammingLanguage')) {
-		//switch ($this->ProgrammingLanguage) {
+		//switch (CodePage::get_static('CodePage', 'ProgrammingLanguage')) {
+		switch ($this->ProgrammingLanguage) {
 				case 'AS3':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushAS3.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushAS3.js");
 				break;
 				
 				case 'Cpp':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushCpp.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushCpp.js");
 				break;
 				
 				case 'Css':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushCss.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushCss.js");
 				break;
 				
 				case 'Java':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushJava.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushJava.js");
 				break;
 				
 				case 'Javascript':
-					Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushJScript.js");
+					Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushJScript.js");
 					break;
 				
 				case 'Plain':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushPlain.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushPlain.js");
 				break;
 				
 				case 'Php':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushPhp.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushPhp.js");
 				break;
 				
 				case 'Sql':
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushSql.js");
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushSql.js");
 				break;
 				
 				case 'Xml':
-					Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushXml.js");
+					Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushXml.js");
 				break;
 				
 				default:
-				Requirements::javascript("ss_syntaxHighlighter/javascript/shBrushJScript.js");
+					echo "<h1>nring bang-".$this->ProgrammingLanguage."-</h1>";
+				Requirements::javascript("SSSyntaxHighlighter/javascript/shBrushJScript.js");
 				break;
 		}
 		Requirements::customScript("SyntaxHighlighter.all();");
-		Requirements::css("ss_syntaxHighlighter/css/shCore.css");
-		Requirements::css("ss_syntaxHighlighter/css/shThemeDefault.css");
+		//Requirements::css("SSSyntaxHighlighter/css/shCore.css");
+		//Requirements::css("SSSyntaxHighlighter/css/shThemeDefault.css");
 		 
 		return $this->renderWith(array('CodePage','Page'));
 	}
